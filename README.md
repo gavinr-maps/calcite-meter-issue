@@ -1,32 +1,29 @@
-# React + TypeScript + Vite
+# <calcite-meter> Issue
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Replication case:
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+git clone git@github.com:gavinr-maps/calcite-meter-issue.git
+cd calcite-meter-issue
+git checkout 285a7bc9585794b5e2285a02ed0f77adc976150f
+npm install
+npm run build
+npm run preview
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Open <http://localhost:4173> (or see my hosted version [here](https://gavinr-maps.github.io/calcite-meter-issue/5.1.2/)) and notice that the meter works fine on calcite@5.1.2.
+
+Try again on calcite@5.2.0:
+
+```bash
+git switch -
+npm install
+npm run build
+npm run preview
+```
+
+Open <http://localhost:4173> (or see my hosted version [here](https://gavinr-maps.github.io/calcite-meter-issue/5.2.0/))
+
+- EXPECTED: <calcite-meter> shows up the same as before
+
+- ACTUAL: **<calcite-meter> does not appear - blank page.**
